@@ -3,7 +3,7 @@ t0 = clock ();
 VC=29.2    
 
 for s=1:4
-rand("state",[3]);randn("state",[3]);
+#rand("state",[3]);randn("state",[3]);
   if s==1
     ini_int_erro=3; fim_int_erro=6;
   elseif s==2
@@ -78,12 +78,12 @@ for q=1:qtd_itr
     choice=randi([-1 0]);
     if choice==0 
       choice=1;end
-    Lgross(j)=Lgross(j)+choice*dp(j)*(ini_int_erro+(fim_int_erro-ini_int_erro)*rand(1));
+    Lgross(j)=L(j)+choice*dp(j)*(ini_int_erro+(fim_int_erro-ini_int_erro)*rand(1));
    
    choice=randi([-1 0]);    
     if choice==0 
       choice=1;end
-    Lgross(t)=Lgross(t)+choice*dp(t)*(ini_int_erro+(fim_int_erro-ini_int_erro)*rand(1));
+    Lgross(t)=L(t)+choice*dp(t)*(ini_int_erro+(fim_int_erro-ini_int_erro)*rand(1));
     
     [xopt, fopt, erro, extra] = glpk (c, A1, Lgross, lb=[], ub=[], ctype, vartype, s=1, param);
     for i=1:m

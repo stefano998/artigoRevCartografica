@@ -1,7 +1,7 @@
 t0 = clock ();
 W=3.29;
 for s=1:4
-rand("state",[0]);randn("state",[0]);
+#rand("state",[0]);randn("state",[0]);
   if s==1
     ini_int_erro=3; fim_int_erro=6;
   elseif s==2
@@ -58,7 +58,7 @@ for q=1:qtd_itr
     choice=randi([-1 0]);
     if choice==0 
       choice=1;end
-    Lgross(j)=Lgross(j)+choice*dp(j)*(ini_int_erro+(fim_int_erro-ini_int_erro)*rand(1));
+    Lgross(j)=L(j)+choice*dp(j)*(ini_int_erro+(fim_int_erro-ini_int_erro)*rand(1));
     
     x=inv(A'*P*A)*A'*P*Lgross;
     v=A*x-Lgross;

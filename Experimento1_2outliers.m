@@ -2,7 +2,7 @@ fator=1  # [RA:1; RAP:2]
 pesos=1  # [PUnit:1; PIV:2]
 
 for s=1:4
-rand("state",[6]);randn("state",[6]);
+#rand("state",[6]);randn("state",[6]);
   if s==1
     ini_int_erro=3; fim_int_erro=6;
   elseif s==2
@@ -79,14 +79,14 @@ for q=1:qtd_itr
     choice=randi([-1 0]);
     if choice==0 
       choice=1;end
-    Lgross(j)=Lgross(j)+choice*dp(j)*(ini_int_erro+(fim_int_erro-ini_int_erro)*rand(1));
+    Lgross(j)=L(j)+choice*dp(j)*(ini_int_erro+(fim_int_erro-ini_int_erro)*rand(1));
 
     do t=randi([1 m]);
     until (t!=j)
     choice=randi([-1 0]);
     if choice==0 
       choice=1;end
-    Lgross(t)=Lgross(t)+choice*dp(t)*(ini_int_erro+(fim_int_erro-ini_int_erro)*rand(1));
+    Lgross(t)=L(t)+choice*dp(t)*(ini_int_erro+(fim_int_erro-ini_int_erro)*rand(1));
     
     [xopt, fopt, erro, extra] = glpk (c, A1, Lgross, lb=[], ub=[], ctype, vartype, s=1, param);
     

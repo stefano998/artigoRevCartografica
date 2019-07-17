@@ -35,7 +35,7 @@ for s=1:4
     ini_int_erro=12; fim_int_erro=25;
   elseif s==4
     ini_int_erro=25; fim_int_erro=100;end
-rand("state",[3]);randn("state",[3]);
+#rand("state",[3]);randn("state",[3]);
 qtd_itr=2000; cont_acerto=0;
 m1=20; n=10;m=m1;
 A=[1	0	0	0	0	0	0	0	0	0;
@@ -83,12 +83,12 @@ L=[163854.9;6446.2;57037.0;126209.5;101128.6;296885.8;398014.4;60449.1;173710.4;
     choice=randi([-1 0]);
     if choice==0 
       choice=1;end
-    Lgross(j)=Lgross(j)+choice*dp(j)*(ini_int_erro+(fim_int_erro-ini_int_erro)*rand(1));
+    Lgross(j)=L(j)+choice*dp(j)*(ini_int_erro+(fim_int_erro-ini_int_erro)*rand(1));
     
     choice=randi([-1 0]);
     if choice==0 
       choice=1;end
-    Lgross(p)=Lgross(p)+choice*dp(p)*(ini_int_erro+(fim_int_erro-ini_int_erro)*rand(1));
+    Lgross(p)=L(p)+choice*dp(p)*(ini_int_erro+(fim_int_erro-ini_int_erro)*rand(1));
     
     x=inv(A'*P*A)*A'*P*Lgross;
     v=A*x-Lgross;
