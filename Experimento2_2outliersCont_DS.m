@@ -269,7 +269,10 @@ L=[163854.9;6446.2;57037.0;126209.5;101128.6;296885.8;398014.4;60449.1;173710.4;
         Ev=inv(P3)-A3*inv(A3'*P3*A3)*A3';
         ww=zeros(m, 1);
         for i=1:m
-          ww(i)=abs(v(i)/sqrt(abs(Ev(i,i))));end;   
+          ww(i,1)=abs(v(i,1)/sqrt(abs(Ev(i,i)))); 
+          if ww(i)>10**5     
+            ww(i)=3; end 
+          end;    
           
         if max(ww)<W
           cont_acerto=cont_acerto+1;end;

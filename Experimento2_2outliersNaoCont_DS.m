@@ -128,9 +128,9 @@ L=[163854.9;6446.2;57037.0;126209.5;101128.6;296885.8;398014.4;60449.1;173710.4;
         ww=zeros(m, 1);
         for i=1:m
           ww(i,1)=abs(v(i,1)/sqrt(abs(Ev(i,i)))); 
-          if ww(i)==Inf     #com a retirada de 2 obs da amostra, a identificada na 3a iter pode ser somente irradiamento.
-            ww(i)=3; end    #caso ocorra, o DP de seu residuo serah nulo, e seu ww(i) serah Inf. Essas 2 linhas evitam que um irradiamento seja idt como outlier.
-          end;  
+          if ww(i)>10**5     
+            ww(i)=3; end     
+          end;   
           
         if max(ww)<W
           cont_acerto=cont_acerto+1;end;
