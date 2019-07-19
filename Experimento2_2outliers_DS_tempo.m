@@ -105,7 +105,7 @@ L=[163854.9;6446.2;57037.0;126209.5;101128.6;296885.8;398014.4;60449.1;173710.4;
         for i=1:m
           ww(i,1)=abs(v(i,1)/sqrt(abs(Ev(i,i)))); 
           if ww(i)>10**5     #com a retirada anterior de 2 observações, evita possiveis 
-            ww(i)=3; end     #identificacao e loop-inf devidos ao irradiamento restante
+            ww(i)=3; end     #identificacao e loop-inf devidos a possivel restante
           end;   
           
         if max(ww)<W
